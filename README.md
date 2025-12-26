@@ -1,6 +1,5 @@
 # WanderLust-by-kishan 
 # MERN Full stack webdevelopment project
-MERN Full stack webdevelopment project
 🌍 WanderLust – Full-Stack Travel & Homestay Web App
 
 WanderLust is a production-ready Airbnb-inspired travel and homestay platform that allows users to explore, list, and review accommodations across different locations. The application is built using Node.js, Express.js, MongoDB, and EJS, following MVC architecture and real-world backend practices.
