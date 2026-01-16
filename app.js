@@ -71,14 +71,7 @@ res.locals.currUser = req.user;
     next();
 });
 
-// app.get("/demouser", async( req, res) =>{
-//     let fakeUser = new User({
-//         email: "student@gmail.com",
-//         username: "delta-student"
-//     });
-//     let registeredUser = await User.register(fakeUser, "helloworld");
-//     res.send(registeredUser);
-// });
+
 
 app.get("/", (req, res) => {
   res.redirect("/listings");
@@ -89,29 +82,11 @@ app.use("/listings", listingRouter);
 app.use("/listings/:id/reviews", reviewRouter);
 app.use("/", userRouter);
 
-// app.use((req, res) => {
-//   res.status(404).render("error.ejs", {
-//     message: "Page not Found!"
-//   });
-// });
-
 app.use((req, res, next) => {
   next(new ExpressError(404, "Page not Found!"));
 });
 
-// app.use((err, req, res, next) =>{
-//     let { statusCode = 500, message = "Something went Wrong" } = err;
-//     res.status(statusCode).render("error.ejs", { message });
-//     // res.status(statusCode).send(message);
-// });
 
-// app.use((err, req, res, next) => {
-//   if (res.headersSent) {
-//     return; // ✅ DO NOT call next(err)
-//   }
-//   const { statusCode = 500, message = "Something went Wrong" } = err;
-//   res.status(statusCode).render("error.ejs", { message });
-// });
 app.use((err, req, res, next) => {
   if (res.headersSent) return;
   const { statusCode = 500, message = "Something went Wrong" } = err;
